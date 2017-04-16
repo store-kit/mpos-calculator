@@ -117,7 +117,7 @@ function calcRates (vol,atv) {
   var avg_trans = atv;
 
   if ( ( 0.01 / avg_trans + 0.002 ) < ( 0.75 / avg_trans ) ) {
-    constant_interchange_bp[2] = ( 0.01 / avg_trans + 0.002 );
+    constant_interchange_bp[2] = ((0.01 / avg_trans) + 0.002 );
   }
   else {
     constant_interchange_bp[2] = ( 0.75 / avg_trans );

@@ -1,12 +1,15 @@
 import izettleRates from './izettleRates.json'
+import izettleRatesFr from './izettleRatesFr.json'
 
 function calcIzettleRates(vol) {
 
 
-
   let t = vol * 100;
 
-  let e = izettleRates.samples;
+    var e = izettleRates.samples;
+
+
+
 
 
   // function a() {

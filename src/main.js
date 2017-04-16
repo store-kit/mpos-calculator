@@ -5,6 +5,7 @@
 import Tachyons from 'tachyons/css/tachyons.css';
 import formatMoney from 'accounting-js/lib/formatMoney.js'
 
+
 /* eslint-enable no-unused-vars */
 
 import Vue from 'vue';

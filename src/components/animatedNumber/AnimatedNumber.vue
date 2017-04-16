@@ -1,5 +1,5 @@
 <template>
-  <span>{{ tweeningValue | currencyDisplay }}</span>
+  <span class="code f4 lh-copy">{{ tweeningValue | currencyDisplay }}</span>
 </template>
 
 <script>
@@ -35,7 +35,7 @@
           animationFrame = requestAnimationFrame(animate)
         }
         new TWEEN.Tween({ tweeningValue: startValue })
-          .to({ tweeningValue: endValue }, 750)
+          .to({ tweeningValue: endValue }, 600)
           .onUpdate(function () {
             vm.tweeningValue = this.tweeningValue.toFixed(0)
           })

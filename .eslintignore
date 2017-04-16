@@ -1,5 +1,2 @@
 build/*.js
 config/*.js
-src/*.vue
-**/*.js
-**/*.vue
