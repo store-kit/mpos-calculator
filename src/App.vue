@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="pnova">
+  <div id="app" class="pnova overflow-x-hidden">
       <header class="vh-75-l vh-50-m h-100 dt w-100">
         <div id="stripeBg" class="absolute"></div>
         <div class="dt-m dt-l ph2 pv4-m pv6-l pb4 w-100 relative">
@@ -24,7 +24,7 @@
       <div class="mw9 center relative">
         <div class="faqs">
           <h1 class="tc">FAQs</h1>
-          <div>
+          <div class="">
             <h1 class="f3 lh-copy">What?</h1>
             <p>Hello</p>
           </div>
@@ -107,9 +107,9 @@ export default {
   @media screen and (min-width: 60em) {
     #devices {
       display: block;
-      top: -10px;
+      top: 5px;
       margin-left: 20px;
-      left:55%;
+      left:57%;
       width:800px;
     }
   }

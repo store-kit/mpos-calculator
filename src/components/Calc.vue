@@ -173,6 +173,31 @@
         </div>
         </a>
       </div>
+          <div class="fl w-100 w-third-m w-20-ns pa2 mix" v-if="showSmileAndPay" key="smileandpay">
+            <a href="https://www.smileandpay.com?utm_source=StoreKit" class="link color-inherit" target="_blank">
+              <div id="sparkpay" class="mposWrap bg-white br3">
+                <div class="mposValues tc">
+                  <div class="mposImg">
+                    <img src="../assets/smileandpay.png" class="mposLogo">
+                  </div>
+                  <p class="f6">Upfront Cost</p>
+                  <span class="f4 lh-copy code">{{currency}}</span>
+                  <animated-number v-bind:value="smileAndPayFront"></animated-number>
+                  <p class="f6">Monthly Cost**</p>
+                  <span class="f4 lh-copy code">{{currency}}</span>
+                  <animated-number v-bind:value="smileAndPayMonthly" data-balloon="Includes estimated monthly terminal rental of £25" data-balloon-pos="right" data-balloon-length="large">{{currency}}</animated-number>
+                </div>
+                <div class="mposText br--bottom br3">
+                  <ul class="mposBullets tl f6">
+                    <li>2-3 day deposits</li>
+                    <li>Spire SPm2 Reader</li>
+                    <li>No contract</li>
+                  </ul>
+                  <a href="https://www.smileandpay.com?utm_source=StoreKit" target="_blank" class="signupLink">Learn More</a>
+                </div>
+              </div>
+            </a>
+          </div>
       <div class="fl w-100 w-third-m w-20-ns pa2 mix" v-if="showBarclayCard" key="barclaycard">
             <a href="https://www2.barclaycard.co.uk/business/accepting-payments/card-machines/barclaycard-anywhere?utm_source=StoreKit" class="link color-inherit" target="_blank">
               <div id="sparkpay" class="mposWrap bg-white br3">
@@ -225,7 +250,7 @@
         return {
           vol: '7500',
           atv: '25',
-          terminals: '2',
+          terminals: '1',
           time: ['Monthly', 'Yearly'],
           period: 'Monthly',
           countryValue: { name: 'UK', img: './static/uk.svg' },
@@ -301,6 +326,18 @@
             return false;
         }
       },
+      showSmileAndPay: function () {
+
+          let country = this.countryValue.name;
+
+          if ( country === 'France') {
+              return true;
+          }
+
+          else {
+              return false;
+          }
+      },
       showSparkPay: function () {
 
         let country = this.countryValue.name;
@@ -358,6 +395,9 @@
           return this.terminals * 37.5;
         }
 
+      },
+      smileAndPayFront: function () {
+        return this.terminals * 79;
       },
       izettleFront:function () {
 
@@ -420,6 +460,21 @@
             return 0;
         }
       },
+      smileAndPayMonthly: function () {
+
+          let vol = this.vol;
+
+        if (vol >= 10001) {
+            return vol * 0.012;
+        } else if (vol <= 1999) {
+            return vol * 0.02;
+        } else {
+            let commission = -0.497 * Math.log(vol) + 5.776;
+            commission = Math.round(commission * 100) / 100;
+          return vol * commission / 100;
+        }
+
+      },
       sparkPayFront: function () {
 
         if (this.terminals <= 1) {
@@ -441,21 +496,17 @@
               if ( Number.isFinite(result) ) {
               return result;
             }
-
             else {
                   return 0;
             }
-
           }
 
           else {
 
             let result = ( 19 + ( (vol * 0.0199) + ( trans * 0.05 ) ));
-
             if ( Number.isFinite(result) ) {
               return result;
             }
-
             else {
               return 0;
             }
