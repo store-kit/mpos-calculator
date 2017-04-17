@@ -217,7 +217,7 @@
               <div id="sparkpay" class="mposWrap bg-white br3">
                 <div class="mposValues tc">
                   <div class="mposImg">
-                    <img src="../assets/barclaycard.svg" class="mposLogo">
+                    <img src="/static/barclaycard.svg" class="mposLogo">
                   </div>
                   <p class="f6">Upfront Cost</p>
                   <span class="f4 lh-copy code">{{currency}}</span>
@@ -242,7 +242,7 @@
     <div>
 
     </div>
-    <p class="note f7 tc">
+    <p class="note f7 tc ph2">
       *All costs are estimated, but probably correct. (data updated April '17)
       <br>
       ** Amex & international cards may be priced separately.
@@ -262,7 +262,7 @@
   export default {
     data: function () {
         return {
-          vol: '7500',
+          vol: '4000',
           atv: '25',
           terminals: '1',
           time: ['Monthly', 'Yearly'],
