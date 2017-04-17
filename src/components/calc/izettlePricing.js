@@ -1,16 +1,19 @@
 import izettleRates from './izettleRates.json'
 import izettleRatesFr from './izettleRatesFr.json'
 
-function calcIzettleRates(vol) {
+function calcIzettleRates(vol, country) {
 
 
   let t = vol * 100;
 
+  if ( country === 'France') {
+    var e = izettleRatesFr.samples;
+
+  }
+
+  else {
     var e = izettleRates.samples;
-
-
-
-
+  }
 
   // function a() {
   //     var e = this;

@@ -49,7 +49,7 @@
     <div class="Results tc cf pv4 center mw9">
       <!--<transition name="fade">-->
         <transition-group name="list-complete" tag="div">
-          <div class="fl w-100 w-third-m w-20-ns pa2 mix" v-if="showPaypal === true" key="paypal">
+          <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" v-if="showPaypal === true" key="paypal">
           <a href="http://www.paypalhere.com?utm_source=StoreKit" class="link color-inherit" target="_blank">
           <div id="paypal" class="mposWrap bg-white br3" >
             <div class="mposValues tc">
@@ -65,8 +65,8 @@
             </div>
             <div class="mposText br--bottom br3">
               <ul class="mposBullets tl f6">
-                <li>2-3 day deposits</li>
-                <li>Muira M010 Reader</li>
+                <li>Instant deposits</li>
+                <li>Miura M010 Reader</li>
                 <li>No contract</li>
               </ul>
               <a href="http://www.paypalhere.com?utm_source=StoreKit" target="_blank" class="signupLink">Learn More</a>
@@ -74,7 +74,7 @@
           </div>
           </a>
       </div>
-          <div class="fl w-100 w-third-m w-20-ns pa2 mix" key="sumup">
+          <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" key="sumup">
             <a href="https://sumup.com/?a_aid=store-kit" class="link color-inherit" target="_blank">
               <div id="sumup" class="mposWrap bg-white br3">
                 <div class="mposValues tc">
@@ -99,7 +99,7 @@
               </div>
             </a>
           </div>
-      <div class="fl w-100 w-third-m w-20-ns pa2 mix" v-if="showSquare" key="square">
+      <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" v-if="showSquare" key="square">
         <a href="https://squareup.com?utm_source=StoreKit" class="link color-inherit" target="_blank">
         <div id="square" class="mposWrap bg-white br3">
           <div class="mposValues tc">
@@ -115,7 +115,7 @@
           </div>
           <div class="mposText br--bottom br3">
             <ul class="mposBullets tl f6">
-              <li>2-3 day deposits</li>
+              <li>1 day deposits</li>
               <li>Square Reader</li>
               <li>No contract</li>
             </ul>
@@ -124,7 +124,7 @@
         </div>
         </a>
       </div>
-      <div class="fl w-100 w-third-m w-20-ns pa2 mix" v-if="showIzettle" key="izettle">
+      <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" v-if="showIzettle" key="izettle">
         <a href="http://izettle.go2cloud.org/SH1bN" class="link color-inherit" target="_blank">
           <div id="izettle" class="mposWrap bg-white br3" >
             <div class="mposValues tc">
@@ -149,7 +149,7 @@
           </div>
         </a>
       </div>
-      <div class="fl w-100 w-third-m w-20-ns pa2 mix" v-if="showSparkPay" key="sparkpay">
+      <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" v-if="showSparkPay" key="sparkpay">
         <a href="https://squareup.com?utm_source=StoreKit" class="link color-inherit" target="_blank">
         <div id="sparkpay" class="mposWrap bg-white br3">
           <div class="mposValues tc">
@@ -165,7 +165,8 @@
           </div>
           <div class="mposText br--bottom br3">
             <ul class="mposBullets tl f6">
-              <li>2-3 day deposits</li>
+              <li>2 day deposits</li>
+              <li>SparkPay Jack Reader</li>
               <li>No contract</li>
             </ul>
             <a href="https://squareup.com?utm_source=StoreKit" target="_blank" class="signupLink">Learn More</a>
@@ -173,7 +174,7 @@
         </div>
         </a>
       </div>
-          <div class="fl w-100 w-third-m w-20-ns pa2 mix" v-if="showSmileAndPay" key="smileandpay">
+          <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" v-if="showSmileAndPay" key="smileandpay">
             <a href="https://www.smileandpay.com?utm_source=StoreKit" class="link color-inherit" target="_blank">
               <div id="sparkpay" class="mposWrap bg-white br3">
                 <div class="mposValues tc">
@@ -189,7 +190,7 @@
                 </div>
                 <div class="mposText br--bottom br3">
                   <ul class="mposBullets tl f6">
-                    <li>2-3 day deposits</li>
+                    <li>2 Day deposits</li>
                     <li>Spire SPm2 Reader</li>
                     <li>No contract</li>
                   </ul>
@@ -198,7 +199,7 @@
               </div>
             </a>
           </div>
-      <div class="fl w-100 w-third-m w-20-ns pa2 mix" v-if="showBarclayCard" key="barclaycard">
+      <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" v-if="showBarclayCard" key="barclaycard">
             <a href="https://www2.barclaycard.co.uk/business/accepting-payments/card-machines/barclaycard-anywhere?utm_source=StoreKit" class="link color-inherit" target="_blank">
               <div id="sparkpay" class="mposWrap bg-white br3">
                 <div class="mposValues tc">
@@ -215,7 +216,7 @@
                 <div class="mposText br--bottom br3">
                   <ul class="mposBullets tl f6">
                     <li>2-3 day deposits</li>
-                    <li>Muira M010 Reader</li>
+                    <li>Miura M010 Reader</li>
                     <li>No contract</li>
                   </ul>
                   <a href="https://www2.barclaycard.co.uk/business/accepting-payments/card-machines/barclaycard-anywhere?utm_source=StoreKit" target="_blank" class="signupLink">Learn More</a>
@@ -257,9 +258,7 @@
           countrySelect: [
             { name: 'UK', img: './static/gb.svg'},
             { name: 'USA', img: './static/us.svg'},
-            { name: 'France', img: './static/fr.svg'},
-            { name: 'Germany', img: './static/de.svg'},
-
+            { name: 'France', img: './static/fr.svg'}
           ]
         }
     },
@@ -295,8 +294,6 @@
 //              document.getElementById('volume-wrapper').removeAttribute('data-balloon-visible');
           return true;
         }
-
-
       },
       posSystem: function () {
 
@@ -364,8 +361,14 @@
       },
       showPaypal: function () {
 
-        return true;
+          let country = this.countryValue.name;
 
+          if (country !== 'France') {
+            return true;
+          }
+          else {
+              return false
+          }
       },
       showPX: function () {
 
@@ -416,7 +419,13 @@
         let country = this.countryValue.name;
 
         if (country == 'USA') {
-          return this.terminals * 69;
+          if (this.terminals <= 1) {
+            return 0;
+          }
+          else {
+            return (this.terminals - 1) * 69;
+
+          }
         }
 
         else if ( country === 'UK') {
@@ -544,8 +553,20 @@
       sumupMonthly: function () {
 
         let vol = this.vol;
+        let country = this.countryValue.name;
 
-        return vol * 0.0195;
+        if ( country === 'UK') {
+            return vol * 0.0195;
+        }
+        else if ( country === 'USA') {
+          return this.vol * 0.0275;
+        }
+
+        else {
+            return vol * 0.0175
+        }
+
+
       },
       barclayCardMonthly: function () {
 
@@ -556,9 +577,10 @@
       izettleMonthly: function () {
 
         let vol = this.vol;
+        let country = this.countryValue.name;
 
         if (vol !== null ) {
-          return calcIzettleRates(vol);
+          return calcIzettleRates(vol,country);
         }
         else {
           return 0;
@@ -679,6 +701,13 @@
 </style>
 
 <style>
+
+
+  @media screen and (min-width: 80rem) {
+    .pa2-xl {
+      padding: .5rem;
+    }
+  }
 
 
 
