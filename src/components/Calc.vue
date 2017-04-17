@@ -2,7 +2,7 @@
   <div class="center Calc pv4">
     <div class="ph3 ph4-m ph5-l">
       <p class="lh-copy f5 f3-m f3-l measure tc center pv1 w-75 color-navy-900">
-        Select your country, enter your average sale value and monthly card takings. Get an instant {{currencyText}} value, no more messing with spreadsheets and rate guesswork!
+        Select your country, enter your average sale value and monthly card takings. Get an instant {{currencyText}} value, no more messing with spreadsheets and % rate guesswork!
       </p>
     </div>
         <form>
@@ -243,7 +243,7 @@
 
     </div>
     <p class="note f7 tc">
-      *All costs are estimated (data updated April '17)
+      *All costs are estimated, but probably correct. (data updated April '17)
       <br>
       ** Amex & international cards may be priced separately.
     </p>
@@ -510,8 +510,15 @@
         let vol = this.vol;
         let atv = this.atv;
         let trans = (vol/atv);
+        let result = ((vol*0.0269) + (trans * 0.09));
 
-        return ((vol*0.0269) + (trans * 0.09));
+        if ( Number.isFinite(result) ) {
+            return result;
+        }
+        else {
+            return 0;
+        }
+
       },
       smileAndPayMonthly: function () {
 
@@ -833,5 +840,6 @@
   .multiselect__option > div {
     display: inline-block;
   }
+
 
 </style>

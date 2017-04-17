@@ -9,7 +9,7 @@
                 Compare mPOS Providers
               </h1>
               <div class="pb3 pb4-m pb4-l white measure">
-                  <h2 class="f4 lh-copy fw2">Instantly find your lowest cost option for taking payments on the go with our mobile payments calculator.</h2>
+                  <h2 class="f4 lh-copy fw2">Instantly find your lowest cost option for taking card payments on the go with our free mobile payments calculator.</h2>
                   <h2 class="f4 lh-copy fw2">Brought to you by <a href="https://storekit.com" class="white link">StoreKit</a></h2>
               </div>
             </div>
@@ -21,17 +21,29 @@
       <calc></calc>
     </section>
     <section id="faqs" class="relative">
-      <div class="mw9 center relative">
-        <div class="faqs">
-          <h1 class="tc">FAQs</h1>
-          <div class="">
-            <h1 class="f3 lh-copy">What?</h1>
-            <p>Hello</p>
+      <div class="mw7 center relative">
+        <div class="cf ph2-ns faqs">
+          <div class="w-100">
+            <h1 class="tc">FAQs</h1>
+          </div>
+          <div class="w-100 pa2">
+            <h1 class="f3 lh-copy">What about XYZ?</h1>
+            <p class="lh-copy">We're big fans of increased competition in the payments world, but providers need to meet certain criteria before we'll feature them:
+              <li class="lh-copy">Clear, transparent and publicly available pricing structure.</li>
+              <li class="lh-copy">Local support team in respective markets.</li>
+              <li class="lh-copy">Minimal or no contracts required to sign up.</li>
+              <li class="lh-copy">Reasonable compatibility with modern smartphones and tablets.</li>
+            </p>
+            <h1 class="f3 lh-copy">What's different about mobile point of sale?</h1>
+            <p class="lh-copy">Compared to traditional merchant accounts, </p>
+            <h1 class="f3 lh-copy">You're using mobile payments wrong</h1>
+            <p>So is everyone else.</p>
           </div>
         </div>
       </div>
 
       </section>
+    <social></social>
 
   </div>
 </template>
@@ -39,11 +51,13 @@
 <script>
 
 import Calc from './components/Calc'
+import Social from './components/social/Social.vue'
 
 export default {
     name: 'app',
     components: {
-        Calc
+        Calc,
+        Social
     }
 }
 
