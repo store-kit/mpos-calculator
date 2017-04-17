@@ -35,7 +35,7 @@
           animationFrame = requestAnimationFrame(animate)
         }
         new TWEEN.Tween({ tweeningValue: startValue })
-          .to({ tweeningValue: endValue }, 600)
+          .to({ tweeningValue: endValue }, 650)
           .onUpdate(function () {
             vm.tweeningValue = this.tweeningValue.toFixed(0)
           })

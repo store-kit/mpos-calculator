@@ -2,16 +2,13 @@
   <div class="center Calc pv4">
     <div class="ph3 ph4-m ph5-l">
       <p class="lh-copy f5 f3-m f3-l measure tc center pv1 w-75 color-navy-900">
-        Select your country and enter your the amount you take on cards. No more spreadsheets and guesswork!
+        Select your country, enter your average sale value and monthly card takings. Get an instant {{currencyText}} value, no more messing with spreadsheets and rate guesswork!
       </p>
     </div>
         <form>
           <div class="CalcForm mw8 center ph2 ph3-ns pv5">
             <div class="CalcFormContainer br3 cf ph3 ph2-ns pv2">
               <div class="CountrySelect fl w-100 w-25-ns pa2">
-                <!--<input type="checkbox" name="country" id="us" v-model="us">-->
-                <!--<label for="us">USA</label>-->
-                <!--{{us}}-->
                 <span class="db ttu tracked f6 lh-copy pv2">Country</span>
                 <div>
                   <multiselect v-model="countryValue" label="name" track-by="name" :options="countrySelect" :option-height="40" :custom-label="customLabel" :show-labels="false" :searchable="false" :allow-empty="false" >
@@ -21,36 +18,27 @@
                   </multiselect>
                 </div>
               </div>
-              <!--<div class="CountrySelect fl w-100 w-20-ns pa2">-->
-                  <!--<span class="db ttu tracked f6 lh-copy pv2">Period</span>-->
-                  <!--<input type="radio" name="period" id="monthly" v-model="time">-->
-                  <!--<label for="monthly">Monthly</label>-->
-                  <!--<input type="radio" name="period" id="yearly" v-model="time">-->
-                  <!--<label for="yearly">Yearly</label>-->
-              <!--</div>-->
-              <div class="fl w-100 w-25-ns pa2" id="atv-wrapper" data-balloon="Enter the total amount you expect to take per month on credit and debit cards." data-balloon-pos="down" data-balloon-length="large">
+              <div class="fl w-100 w-25-ns pa2" id="atv-wrapper">
                 <label class="db ttu tracked f6 lh-copy pv2" for="volume">Average Sale Value</label>
                 <span class="currency f4 lh-copy code">{{currency}}</span>
                 <input class="dib bn input-reset outline-0 f4 lh-copy code w-80-ns" pattern="[0-9]*" inputmode="numeric" id="atv" v-model.number="atv" placeholder="15" type="number" step="1" min="0">
               </div>
-              <div class="fl w-100 w-30-ns pa2" id="volume-wrapper" data-balloon="Enter the total amount you expect to take per month on credit and debit cards." data-balloon-pos="down" data-balloon-length="large">
+              <div class="fl w-100 w-30-ns pa2" id="volume-wrapper">
                 <label class="db ttu tracked f6 lh-copy pv2" for="volume">Monthly Card Volume</label>
                 <span class="currency f4 lh-copy code">{{currency}}</span>
                 <input class="dib bn input-reset outline-0 f4 lh-copy code w-80-ns" pattern="[0-9]*" inputmode="numeric" id="volume" v-model.number="vol" placeholder="10,000" type="number" step="100" min="0">
               </div>
-              <div class="fl w-100 w-20-ns pa2" data-balloon="Enter the number of credit card readers you'll need" data-balloon-pos="down" data-balloon-length="large">
+              <div class="fl w-100 w-20-ns pa2">
                 <label class="db ttu tracked f6 lh-copy pv2" for="terminals">Card Readers</label>
                 <input class="dib bn outline-0 f4 lh-copy code" id="terminals" pattern="[0-9]*" v-model.number="terminals" placeholder="1" type="number" min="0" autocomplete="off">
               </div>
             </div>
           </div>
         </form>
-
     <div class="Results tc cf pv4 center mw9">
-      <!--<transition name="fade">-->
         <transition-group name="list-complete" tag="div">
           <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" v-if="showPaypal === true" key="paypal">
-          <a href="http://www.paypalhere.com?utm_source=StoreKit" class="link color-inherit" target="_blank">
+          <a href="http://www.paypalhere.com?ref=StoreKit" class="link color-inherit" target="_blank">
           <div id="paypal" class="mposWrap bg-white br3" >
             <div class="mposValues tc">
               <div class="mposImg">
@@ -61,7 +49,7 @@
               <animated-number v-bind:value="paypalFront" class="code"></animated-number>
               <p class="f6">{{period}} Cost**</p>
               <span class="f4 lh-copy code">{{currency}}</span>
-              <animated-number v-bind:value="paypalMonthly" class="code" data-balloon="Includes estimated monthly terminal rental of £25" data-balloon-pos="right" data-balloon-length="large">{{currency}}</animated-number>
+              <animated-number v-bind:value="paypalMonthly" class="code">{{currency}}</animated-number>
             </div>
             <div class="mposText br--bottom br3">
               <ul class="mposBullets tl f6">
@@ -69,7 +57,7 @@
                 <li>Miura M010 Reader</li>
                 <li>No contract</li>
               </ul>
-              <a href="http://www.paypalhere.com?utm_source=StoreKit" target="_blank" class="signupLink">Learn More</a>
+              <a href="http://www.paypalhere.com?ref=StoreKit" target="_blank" class="signupLink">Learn More</a>
             </div>
           </div>
           </a>
@@ -86,7 +74,7 @@
                   <animated-number v-bind:value="sumupFront"></animated-number>
                   <p class="f6">Monthly Cost**</p>
                   <span class="f4 lh-copy code">{{currency}}</span>
-                  <animated-number v-bind:value="sumupMonthly" data-balloon="Includes estimated monthly terminal rental of £25" data-balloon-pos="right" data-balloon-length="large">{{currency}}</animated-number>
+                  <animated-number v-bind:value="sumupMonthly">{{currency}}</animated-number>
                 </div>
                 <div class="mposText br--bottom br3">
                   <ul class="mposBullets tl f6">
@@ -100,7 +88,7 @@
             </a>
           </div>
       <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" v-if="showSquare" key="square">
-        <a href="https://squareup.com?utm_source=StoreKit" class="link color-inherit" target="_blank">
+        <a href="https://squareup.com?ref=StoreKit" class="link color-inherit" target="_blank">
         <div id="square" class="mposWrap bg-white br3">
           <div class="mposValues tc">
             <div class="mposImg">
@@ -111,7 +99,7 @@
             <animated-number v-bind:value="squareFront"></animated-number>
             <p class="f6">Monthly Cost**</p>
             <span class="f4 lh-copy code">{{currency}}</span>
-            <animated-number v-bind:value="squareMonthly" data-balloon="Includes estimated monthly terminal rental of £25" data-balloon-pos="right" data-balloon-length="large">{{currency}}</animated-number>
+            <animated-number v-bind:value="squareMonthly">{{currency}}</animated-number>
           </div>
           <div class="mposText br--bottom br3">
             <ul class="mposBullets tl f6">
@@ -119,7 +107,7 @@
               <li>Square Reader</li>
               <li>No contract</li>
             </ul>
-            <a href="https://squareup.com?utm_source=StoreKit" target="_blank" class="signupLink">Learn More</a>
+            <a href="https://squareup.com?ref=StoreKit" target="_blank" class="signupLink">Learn More</a>
           </div>
         </div>
         </a>
@@ -136,7 +124,7 @@
               <animated-number v-bind:value="izettleFront"></animated-number>
               <p class="f6">Monthly Cost**</p>
               <span class="f4 lh-copy code">{{currency}}</span>
-              <animated-number v-bind:value="izettleMonthly" data-balloon="Includes estimated monthly terminal rental of £25" data-balloon-pos="right" data-balloon-length="large">{{currency}}</animated-number>
+              <animated-number v-bind:value="izettleMonthly">{{currency}}</animated-number>
             </div>
             <div class="mposText br--bottom br3">
               <ul class="mposBullets tl f6">
@@ -149,6 +137,31 @@
           </div>
         </a>
       </div>
+          <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" v-if="showClover" key="clover">
+            <a href="https://www.cloverconnect.com?ref=StoreKit" class="link color-inherit" target="_blank">
+              <div id="izettle" class="mposWrap bg-white br3" >
+                <div class="mposValues tc">
+                  <div class="mposImg">
+                    <img src="../assets/clover.png" class="mposLogo">
+                  </div>
+                  <p class="f6">Upfront Cost</p>
+                  <span class="f4 lh-copy code">{{currency}}</span>
+                  <animated-number v-bind:value="cloverFront"></animated-number>
+                  <p class="f6">Monthly Cost**</p>
+                  <span class="f4 lh-copy code">{{currency}}</span>
+                  <animated-number v-bind:value="cloverMonthly">{{currency}}</animated-number>
+                </div>
+                <div class="mposText br--bottom br3">
+                  <ul class="mposBullets tl f6">
+                    <li>2-3 day deposits</li>
+                    <li>Clover Go All-in-One Reader</li>
+                    <li>No contract</li>
+                  </ul>
+                  <a href="https://www.cloverconnect.com?ref=StoreKit" target="_blank" class="signupLink">Learn More</a>
+                </div>
+              </div>
+            </a>
+          </div>
       <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" v-if="showSparkPay" key="sparkpay">
         <a href="https://squareup.com?utm_source=StoreKit" class="link color-inherit" target="_blank">
         <div id="sparkpay" class="mposWrap bg-white br3">
@@ -161,7 +174,7 @@
             <animated-number v-bind:value="sparkPayFront"></animated-number>
             <p class="f6">Monthly Cost**</p>
             <span class="f4 lh-copy code">{{currency}}</span>
-            <animated-number v-bind:value="sparkPayMonthly" data-balloon="Includes estimated monthly terminal rental of £25" data-balloon-pos="right" data-balloon-length="large">{{currency}}</animated-number>
+            <animated-number v-bind:value="sparkPayMonthly">{{currency}}</animated-number>
           </div>
           <div class="mposText br--bottom br3">
             <ul class="mposBullets tl f6">
@@ -169,13 +182,13 @@
               <li>SparkPay Jack Reader</li>
               <li>No contract</li>
             </ul>
-            <a href="https://squareup.com?utm_source=StoreKit" target="_blank" class="signupLink">Learn More</a>
+            <a href="https://squareup.com?ref=StoreKit" target="_blank" class="signupLink">Learn More</a>
           </div>
         </div>
         </a>
       </div>
           <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" v-if="showSmileAndPay" key="smileandpay">
-            <a href="https://www.smileandpay.com?utm_source=StoreKit" class="link color-inherit" target="_blank">
+            <a href="https://www.smileandpay.com?ref=StoreKit" class="link color-inherit" target="_blank">
               <div id="sparkpay" class="mposWrap bg-white br3">
                 <div class="mposValues tc">
                   <div class="mposImg">
@@ -186,7 +199,7 @@
                   <animated-number v-bind:value="smileAndPayFront"></animated-number>
                   <p class="f6">Monthly Cost**</p>
                   <span class="f4 lh-copy code">{{currency}}</span>
-                  <animated-number v-bind:value="smileAndPayMonthly" data-balloon="Includes estimated monthly terminal rental of £25" data-balloon-pos="right" data-balloon-length="large">{{currency}}</animated-number>
+                  <animated-number v-bind:value="smileAndPayMonthly">{{currency}}</animated-number>
                 </div>
                 <div class="mposText br--bottom br3">
                   <ul class="mposBullets tl f6">
@@ -194,13 +207,13 @@
                     <li>Spire SPm2 Reader</li>
                     <li>No contract</li>
                   </ul>
-                  <a href="https://www.smileandpay.com?utm_source=StoreKit" target="_blank" class="signupLink">Learn More</a>
+                  <a href="https://www.smileandpay.com?ref=StoreKit" target="_blank" class="signupLink">Learn More</a>
                 </div>
               </div>
             </a>
           </div>
       <div class="fl w-100 w-third-m w-20-ns pa2-xl mix" v-if="showBarclayCard" key="barclaycard">
-            <a href="https://www2.barclaycard.co.uk/business/accepting-payments/card-machines/barclaycard-anywhere?utm_source=StoreKit" class="link color-inherit" target="_blank">
+            <a href="https://www2.barclaycard.co.uk/business/accepting-payments/card-machines/barclaycard-anywhere?ref=StoreKit" class="link color-inherit" target="_blank">
               <div id="sparkpay" class="mposWrap bg-white br3">
                 <div class="mposValues tc">
                   <div class="mposImg">
@@ -211,7 +224,7 @@
                   <animated-number v-bind:value="barclayCardFront"></animated-number>
                   <p class="f6">Monthly Cost**</p>
                   <span class="f4 lh-copy code">{{currency}}</span>
-                  <animated-number v-bind:value="barclayCardMonthly" data-balloon="Includes estimated monthly terminal rental of £25" data-balloon-pos="right" data-balloon-length="large">{{currency}}</animated-number>
+                  <animated-number v-bind:value="barclayCardMonthly">{{currency}}</animated-number>
                 </div>
                 <div class="mposText br--bottom br3">
                   <ul class="mposBullets tl f6">
@@ -219,7 +232,7 @@
                     <li>Miura M010 Reader</li>
                     <li>No contract</li>
                   </ul>
-                  <a href="https://www2.barclaycard.co.uk/business/accepting-payments/card-machines/barclaycard-anywhere?utm_source=StoreKit" target="_blank" class="signupLink">Learn More</a>
+                  <a href="https://www2.barclaycard.co.uk/business/accepting-payments/card-machines/barclaycard-anywhere?ref=StoreKit" target="_blank" class="signupLink">Learn More</a>
                 </div>
               </div>
             </a>
@@ -239,7 +252,7 @@
 
 <script>
 
-  import {default as calcRates} from './calc/processing.js'
+//  import {default as calcRates} from './calc/processing.js'
   import {default as calcIzettleRates} from './calc/izettlePricing.js'
   import AnimatedNumber from './animatedNumber/AnimatedNumber.vue'
   import Multiselect from 'vue-multiselect'
@@ -288,6 +301,18 @@
       period: function () {
         return 'Monthly';
       },
+      currencyText: function () {
+          let country = this.countryValue.name;
+          if (country === 'UK') {
+              return 'pound';
+          }
+          else if (country === 'USA') {
+              return 'dollar';
+          }
+          else {
+              return 'euro';
+          }
+      },
       complete: function () {
         if (this.vol && this.atv && this.terminals != '') {
 
@@ -311,6 +336,14 @@
           return false;
         }
 
+      },
+      showClover: function () {
+        if (this.countryValue.name === "USA") {
+          return true;
+        }
+        else {
+            return false;
+        }
       },
       showSquare: function () {
         let country = this.countryValue.name;
@@ -399,6 +432,10 @@
         }
 
       },
+      cloverFront: function () {
+        let terminals = this.terminals;
+        return terminals * 111.99;
+      },
       smileAndPayFront: function () {
         return this.terminals * 79;
       },
@@ -468,6 +505,13 @@
         else {
             return 0;
         }
+      },
+      cloverMonthly: function () {
+        let vol = this.vol;
+        let atv = this.atv;
+        let trans = (vol/atv);
+
+        return ((vol*0.0269) + (trans * 0.09));
       },
       smileAndPayMonthly: function () {
 
@@ -717,12 +761,16 @@
   .list-complete-enter, .list-complete-leave-to
     /* .list-complete-leave-active for <2.1.8 */ {
     opacity: 0;
+  }
+  .list-complete-enter {
     transform: translateY(30px);
   }
   .list-complete-leave-active {
     position: absolute;
-    right:0;
+    right:-200px;
+
   }
+
 
   .multiselect:hover {
     cursor: pointer;
