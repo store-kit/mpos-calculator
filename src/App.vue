@@ -15,7 +15,7 @@
             </div>
           </div>
         </div>
-        <div id="devices" class="absolute"><img src="/static/devices.png"></div>
+        <div id="devices" class="absolute"><img src="/static/devices-ds.png"></div>
       </header>
     <section id="calc" class="relative">
       <calc></calc>
