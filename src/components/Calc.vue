@@ -217,7 +217,7 @@
               <div id="sparkpay" class="mposWrap bg-white br3">
                 <div class="mposValues tc">
                   <div class="mposImg">
-                    <img src="/static/barclaycard.svg" class="mposLogo">
+                    <img src="../../static/barclaycard.svg" class="mposLogo">
                   </div>
                   <p class="f6">Upfront Cost</p>
                   <span class="f4 lh-copy code">{{currency}}</span>
