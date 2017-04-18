@@ -42,13 +42,28 @@
             <h1 class="f3 lh-copy">Don't you mean mobile payments?</h1>
             <p>Not really. <a href="http://www.shopkeep.com/blog/mobile-point-of-sale-vs-mobile-payments-why-the-difference-matters" target="_blank" class="link"> See here</a></p>
             <h1 class="f3 lh-copy">What if I take more than 50,000 per year?</h1>
-            <p class="lh-copy">We're working on a product that brings the simplicity of mPOS pricing and friendly contracts to larger businesses. Let's keep in touch.</p>
+            <p class="lh-copy">We're working on a product that brings the simplicity of mPOS pricing and friendly contracts to larger businesses. <span v-on:click="show()" class="link blue pointer">Let's keep in touch</span>.</p>
           </div>
         </div>
       </div>
 
       </section>
     <social></social>
+    <modal name="email"
+           transition="nice-modal-fade"
+           :min-width="400"
+           :min-height="200"
+           :delay="100"
+           :adaptive="true" >
+      <div style="height: 100%; box-sizing: border-box; overflow: auto" class="pa4 bg-white br3 tc">
+        <form action="https://formspree.io/hello@storekit.com"
+              method="POST">
+          <input type="email" name="_replyto" class="input-reset w-100 w-50-ns bn mr4-ns mb4 mb0-ns pa2 emailInput" placeholder="your@email.com">
+          <input type="submit" value="Keep In Touch" class="input-reset w-100 w-auto-ns br2 pa2 ph3 bn white ttu fw6 f7 pointer dim  emailSubmit">
+        </form>
+      </div>
+    </modal>
+
 
   </div>
 </template>
@@ -63,6 +78,11 @@ export default {
     components: {
         Calc,
         Social
+    },
+    methods: {
+    show () {
+      this.$modal.show('email');
+      }
     }
 }
 
@@ -76,6 +96,20 @@ export default {
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  .nice-modal {
+    height: auto!important;
+  }
+
+  .emailInput {
+    outline:none;
+    border-bottom: 1px solid #00acc1;
+    color: #00acc1;
+  }
+
+  .emailSubmit {
+    background: #00acc1;
   }
 
   header {
